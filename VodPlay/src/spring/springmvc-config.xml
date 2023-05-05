@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+	<context:component-scan base-package="com.sheep.controller" />
+
+	<mvc:annotation-driven />
+	<mvc:default-servlet-handler />
+
+	<!-- 拦截器 是配置在springmvc-config.xml 而springmvc-config.xml 是由org.springframework.web.servlet.DispatcherServlet 
+		前端控制器读取的，而org.springframework.web.servlet.DispatcherServlet设置了除了 jsp页面以为都读取，因此在WebContent根目录下的jsp文件无法拦截 -->
+	<!-- <mvc:interceptors> <mvc:interceptor> <mvc:mapping path="/*"/> <bean 
+		class="com.sheep.interceptor.UserInterceptor"/> </mvc:interceptor> </mvc:interceptors> -->
+
+	<!-- 文件上传 -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- 上传文件大小上限，单位为字节（10MB） -->
+		<property name="maxUploadSize">
+			<value>10485760</value>
+		</property>
+		<!-- 请求的编码格式，必须和jSP的pageEncoding属性一致，以便正确读取表单的内容，默认为ISO-8859-1 -->
+		<property name="defaultEncoding">
+			<value>UTF-8</value>
+		</property>
+	</bean>
+	<!--json格式数据转换的配置 -->
+	<bean
+		class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"
+		p:ignoreDefaultModelOnRedirect="true">
+		<property name="messageConverters">
+			<list>
+				<bean
+					class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter" />
+			</list>
+		</property>
+	</bean>
+
+
+<!-- 	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		set the max upload size100MB
+		<property name="maxUploadSize">
+			<value>104857600</value>
+		</property>
+		<property name="maxInMemorySize">
+			<value>4096</value>
+		</property>
+		<property name="defaultEncoding" value="UTF-8"></property>
+	</bean> -->
+
+
+	<!-- 视图解析器 -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver" />
+</beans>

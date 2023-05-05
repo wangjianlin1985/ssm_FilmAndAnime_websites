@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="/jsp/test/jquery.min.js"></script>
+<link href="/jsp/test/test.css" rel='stylesheet' type='text/css' />
+<script type="text/javascript">
+	$(function() {
+		//左侧导航栏菜单两列互相切换
+		//判断当前用户的左侧菜单默认是“折叠”还是“隐藏”
+		var _menustatusCookie = $
+				.cookie("QuestionnaireSurveySys_MenuStatusCode");
+		if (_menustatusCookie == undefined) {
+			$.cookie("QuestionnaireSurveySys_MenuStatusCode", "1", {
+				expires : 365
+			});
+		} else if (_menustatusCookie == "0") {
+			simpleShow();
+		} else if (_menustatusCookie == "1") {
+			simpleHide();
+		}
+
+		$("#hlHideMenu").click(function() {
+			$.cookie("QuestionnaireSurveySys_MenuStatusCode", "0", {
+				expires : 365
+			});
+			simpleShow();
+		});
+		$("#hlHideSimpleMenu").click(function() {
+			$.cookie("QuestionnaireSurveySys_MenuStatusCode", "1", {
+				expires : 365
+			});
+			simpleHide();
+		});
+		//三级导航栏显示
+		$(".simple-ul-levelTwoMenu").on("mouseenter", ".li-levelTwoMenu",
+				function() {
+					$(this).find("ul").show();
+					$(this).find("ul").parent("li").addClass("li-shadow");
+				});
+		$(".simple-ul-levelTwoMenu").on("mouseleave", ".li-levelTwoMenu",
+				function() {
+					$(this).find("ul").hide();
+					$(this).find("ul").parent("li").removeClass("li-shadow");
+				});
+		//导航栏展开状态时，每个类可以单独收起
+		$(".ul-levelTwoMenu").on("click", ".hl-expandable", function() {
+			$(this).next().slideToggle(100);
+		})
+	});
+	//折叠
+	function simpleShow() {
+		$(".ul-levelTwoMenu-wrapper").hide();
+		$(".simple-ul-levelTwoMenu-wrapper").show();
+		$(".content-body").addClass("content-distance");
+		$(".content-header").addClass("content-distance");
+		$(".div-aside").addClass("menuarea-wid");
+		$(".simple-ul-levelTwoMenu-wrapper").addClass("menuarea-wid");
+		$("#hlHideSimpleMenu").addClass("icon-font-e62c");
+		$(".li-levelTwoMenu").addClass("levelTwoMenu-pickup");
+	}
+	//显示
+	function simpleHide() {
+		$(".simple-ul-levelTwoMenu-wrapper").hide();
+		$(".ul-levelTwoMenu-wrapper").show();
+		$(".content-body").removeClass("content-distance");
+		$(".content-header").removeClass("content-distance");
+		$(".div-aside").removeClass("menuarea-wid");
+		$(".simple-ul-levelTwoMenu-wrapper").removeClass("menuarea-wid");
+		$(".li-levelTwoMenu").removeClass("levelTwoMenu-pickup");
+	}
+</script>
+</head>
+<body>
+	<!--左侧菜单开始-->
+	           
+	<div class="div-aside" style="z-index: 0; top: 85px;">
+		               
+		<div class="ul-levelTwoMenu-wrapper">
+			                   
+			<div class="ul-levelTwoMenu-wrapper-title">
+				                        <span class="ul-levelTwoMenu-wrapper-text"
+					style="font-weight: bold">系统菜单</span>                         <a
+					id="hlHideMenu" class="icon-font-e63e"
+					style="margin-left: 16px; margin-top: 2px" href="###"></a>        
+				           
+			</div>
+			                   
+			<ul class="ul-levelTwoMenu">                   
+			</ul>
+			               
+		</div>
+		               
+		<div class="simple-ul-levelTwoMenu-wrapper l">
+			                   
+			<div class="simple-ul-levelTwoMenu-wrapper-title">
+				                        <a id="hlHideSimpleMenu"
+					style="margin-left: 16px; margin-top: 2px" href="###"></a>        
+				           
+			</div>
+			                   
+			<ul class="simple-ul-levelTwoMenu"> 
+			</ul>
+			               
+		</div>
+		           
+	</div>
+	           
+	<!--左侧菜单结束-->
+
+</body>
+</html>

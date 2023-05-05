@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+	<context id="context1">
+		<commentGenerator>
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+
+		<jdbcConnection
+			connectionURL="jdbc:mysql://127.0.0.1:3306/mymovie?characterEncoding=utf8"
+			driverClass="com.mysql.jdbc.Driver" password="123" userId="root" />
+		<javaModelGenerator targetPackage="com.sheep.pojo"
+			targetProject="VodPlay" />
+		<sqlMapGenerator targetPackage="com.sheep.mapper"
+			targetProject="VodPlay" />
+		<javaClientGenerator targetPackage="com.sheep.dao"
+			targetProject="VodPlay" type="XMLMAPPER" />
+			
+			
+	<!-- 	<table tableName="category" domainObjectName="Category"
+			enableSelectByExample="false" enableDeleteByExample="false"
+			enableUpdateByExample="false" enableCountByExample="false">
+		</table> -->
+
+	<!-- 	<table tableName="comment" domainObjectName="Comment"
+			enableSelectByExample="false" enableDeleteByExample="false"
+			enableUpdateByExample="false" enableCountByExample="false">
+		</table> -->
+		<!-- <table tableName="movie" domainObjectName="Movie"
+			enableSelectByExample="false" enableDeleteByExample="false"
+			enableUpdateByExample="false" enableCountByExample="false">
+		</table> -->
+		<!-- <table tableName="sys_user" domainObjectName="User"
+			enableSelectByExample="false" enableDeleteByExample="false"
+			enableUpdateByExample="false" enableCountByExample="false">
+		</table> -->
+		
+		<table tableName="admin" domainObjectName="Admin"
+			enableSelectByExample="false" enableDeleteByExample="false"
+			enableUpdateByExample="false" enableCountByExample="false">
+		</table>
+		
+	</context>
+</generatorConfiguration>

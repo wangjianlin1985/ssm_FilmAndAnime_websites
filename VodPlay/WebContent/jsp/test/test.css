@@ -1,0 +1,459 @@
+@charset "UTF-8";
+/*左侧菜单栏样式*/
+.div-aside {
+	position: fixed;
+	float: left;
+	height: 329px;
+	left: 0;
+	border: 1px solid #e1e2e2
+}
+
+.ul-levelTwoMenu-wrapper {
+	overflow: hidden;
+	float: left;
+	height: 100%;
+	width: 150px
+}
+
+.ul-levelTwoMenu-wrapper-title {
+	padding-left: 49px;
+	border-bottom: 1px solid #e1e3e4;
+	background-color: #f5f8fd;
+	height: 30px;
+	line-height: 30px
+}
+
+.ul-levelTwoMenu-wrapper-text {
+	float: left;
+	color: #323437;
+	font-size: 12px;
+}
+
+.ul-levelTwoMenu {
+	list-style: outside none none;
+	margin-bottom: 10px
+}
+
+.simple-ul-levelTwoMenu-wrapper {
+	float: left
+}
+
+.simple-ul-levelTwoMenu-wrapper-title {
+	padding-left: 1px;
+	border-bottom: 1px solid #e1e3e4;
+	background-color: #f5f8fd;
+	height: 30px;
+	line-height: 30px
+}
+
+.li-levelTwoMenu {
+	position: relative;
+	text-align: left;
+	border-bottom: 1px solid #fff;
+	border-top: 1px solid #fff;
+	border-right: 1px solid #fff;
+	padding-top: 8px;
+	padding-left: 5px;
+	padding-bottom: 5px
+}
+
+.hl-expandable {
+	display: block;
+	height: 30px;
+	width: 150px
+}
+
+.hl-expandable:hover {
+	background-color: #f5f8fd
+}
+
+.icon-levelTwoMenu-align {
+	position: relative;
+	top: 3px
+}
+
+.span-levelTwoMenu-title {
+	color: #323437;
+	cursor: pointer;
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 30px;
+	list-style-image: none;
+	margin-left: 8px
+}
+
+.ul-levelThreeMenu li {
+	height: 20px;
+	padding-top: 10px
+}
+
+.ul-levelThreeMenu li:hover {
+	background-color: #f5f8fd
+}
+
+.span-levelThreeMenu {
+	float: left;
+	color: #323437;
+	cursor: pointer;
+	font-size: 12px;
+	line-height: 12px;
+	list-style-image: none;
+	margin-left: 34px
+}
+
+.simple-span-levelThreeMenu {
+	color: #323437;
+	cursor: pointer;
+	font-size: 12px;
+	line-height: 12px;
+	list-style-image: none
+}
+
+.simple-ul-levelThreeMenu {
+	list-style: none;
+	width: 120px;
+	position: absolute;
+	top: -1px;
+	left: 47px;
+	border: 1px solid #e1e2e2;
+	border-left: none;
+	z-index: 99;
+	background-color: #f5f8fd;
+	text-align: center;
+}
+
+.simple-ul-levelThreeMenu li {
+	padding-top: 14px;
+	height: 28px
+}
+
+.simple-ul-levelThreeMenu li:hover {
+	background-color: #e9e9e9
+}
+/*导航切换样式*/
+.menuarea-wid {
+	width: 47px
+}
+
+.levelTwoMenu-pickup {
+	padding-left: 5px
+}
+
+.content-distance {
+	margin-left: -103px
+}
+
+.li-shadow {
+	background-color: #f5f8fd;
+	border-top-color: #e1e2e2;
+	border-bottom-color: #e1e2e2;
+	border-right: 1px solid #fff;
+	width: 47px;
+	z-index: 999
+}
+/*底部样式*/
+.div-footer {
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	left: 0
+}
+
+.table-bottom {
+	height: 35px;
+	color: #7f7e7a;
+	font-size: 14px;
+	background-color: #edf2fc;
+}
+/*字体文件及其样式*/
+@font-face {
+	font-family: iconfont;
+	src: url(font/iconfont.eot);
+	src: url(font/iconfont.eot#iefix) format("embedded-opentype"),
+		url(font/iconfont.woff) format("woff"), url(font/iconfont.ttf)
+		format("truetype"), url(font/iconfont.svg#iconfont) format("svg")
+}
+
+.icon-font-e60b {
+	font-family: iconfont !important;
+	font-size: 12px;
+	font-style: normal;
+	-webkit-font-smoothing: antialiased;
+	color: #666
+}
+
+.icon-font-e60b:before {
+	margin-left: 5px;
+	margin-right: 2px;
+	content: '\e60b';
+	color: #325169;
+	font-size: 21px
+}
+
+.icon-font-e61a {
+	font-family: iconfont !important;
+	font-size: 12px;
+	font-style: normal;
+	-webkit-font-smoothing: antialiased;
+	color: #666
+}
+
+.icon-font-e61a:before {
+	margin-left: 5px;
+	margin-right: 2px;
+	content: '\e61a';
+	color: #325169;
+	font-size: 21px
+}
+
+.icon-font-e62c {
+	font-family: iconfont !important;
+	font-size: 12px;
+	font-style: normal;
+	-webkit-font-smoothing: antialiased;
+	color: #666
+}
+
+.icon-font-e62c:before {
+	content: '\e62c';
+	color: #000;
+	font-size: 17px
+}
+
+.icon-font-e63e {
+	font-family: iconfont !important;
+	font-size: 12px;
+	font-style: normal;
+	-webkit-font-smoothing: antialiased;
+	color: #666
+}
+
+.icon-font-e63e:before {
+	content: '\e63e';
+	color: #000;
+	font-size: 17px
+}
+
+.icon-font-e657 {
+	font-family: iconfont !important;
+	font-size: 12px;
+	font-style: normal;
+	-webkit-font-smoothing: antialiased;
+	color: #666
+}
+
+.icon-font-e657:before {
+	margin-left: 5px;
+	margin-right: 2px;
+	content: '\e657';
+	color: #325169;
+	font-size: 21px
+}
+
+.icon-font-e65a {
+	font-family: iconfont !important;
+	font-size: 12px;
+	font-style: normal;
+	-webkit-font-smoothing: antialiased;
+	color: #666
+}
+
+.icon-font-e65a:before {
+	margin-left: 5px;
+	margin-right: 2px;
+	content: '\e65a';
+	color: #325169;
+	font-size: 21px
+}
+
+.icon-font-e65c {
+	font-family: iconfont !important;
+	font-size: 12px;
+	font-style: normal;
+	-webkit-font-smoothing: antialiased;
+	color: #666
+}
+
+.icon-font-e65c:before {
+	margin-left: 5px;
+	margin-right: 2px;
+	content: '\e65c';
+	color: #325169;
+	font-size: 21px
+}
+
+.icon-font-e66b {
+	font-family: iconfont !important;
+	font-size: 12px;
+	font-style: normal;
+	-webkit-font-smoothing: antialiased;
+	color: #666
+}
+
+.icon-font-e66b:before {
+	margin-left: 5px;
+	margin-right: 2px;
+	content: '\e66b';
+	color: #325169;
+	font-size: 21px
+}
+
+.icon-font-e661 {
+	font-family: iconfont !important;
+	font-size: 12px;
+	font-style: normal;
+	-webkit-font-smoothing: antialiased;
+	color: #666
+}
+
+.icon-font-e661:before {
+	margin-left: 5px;
+	margin-right: 2px;
+	content: '\e661';
+	color: #325169;
+	font-size: 21px
+}
+
+.icon-font-e662 {
+	font-family: iconfont !important;
+	font-size: 12px;
+	font-style: normal;
+	-webkit-font-smoothing: antialiased;
+	color: #666
+}
+
+.icon-font-e662:before {
+	margin-left: 5px;
+	margin-right: 2px;
+	content: '\e662';
+	color: #325169;
+	font-size: 21px
+}
+
+.icon-font-e664 {
+	font-family: iconfont !important;
+	font-size: 12px;
+	font-style: normal;
+	-webkit-font-smoothing: antialiased;
+	color: #666
+}
+
+.icon-font-e664:before {
+	margin-left: 5px;
+	margin-right: 2px;
+	content: '\e664';
+	color: #325169;
+	font-size: 21px
+}
+
+.icon-font-e665 {
+	font-family: iconfont !important;
+	font-size: 12px;
+	font-style: normal;
+	-webkit-font-smoothing: antialiased;
+	color: #666
+}
+
+.icon-font-e665:before {
+	margin-left: 5px;
+	margin-right: 2px;
+	content: '\e665';
+	color: #325169;
+	font-size: 21px
+}
+
+.icon-font-e668 {
+	font-family: iconfont !important;
+	font-size: 12px;
+	font-style: normal;
+	-webkit-font-smoothing: antialiased;
+	color: #666
+}
+
+.icon-font-e668:before {
+	margin-left: 5px;
+	margin-right: 2px;
+	content: '\e668';
+	color: #325169;
+	font-size: 21px
+}
+
+.icon-font-e669 {
+	font-family: iconfont !important;
+	font-size: 12px;
+	font-style: normal;
+	-webkit-font-smoothing: antialiased;
+	color: #666
+}
+
+.icon-font-e669:before {
+	margin-left: 5px;
+	margin-right: 2px;
+	content: '\e669';
+	color: #325169;
+	font-size: 21px
+}
+
+.icon-font-e674 {
+	font-family: iconfont !important;
+	font-size: 12px;
+	font-style: normal;
+	-webkit-font-smoothing: antialiased;
+	color: #666
+}
+
+.icon-font-e674:before {
+	margin-left: 5px;
+	margin-right: 2px;
+	content: '\e674';
+	color: #325169;
+	font-size: 21px
+}
+
+.icon-font-e677 {
+	font-family: iconfont !important;
+	font-size: 12px;
+	font-style: normal;
+	-webkit-font-smoothing: antialiased;
+	color: #666
+}
+
+.icon-font-e677:before {
+	margin-left: 5px;
+	margin-right: 2px;
+	content: '\e612';
+	color: #325169;
+	font-size: 21px
+}
+
+.icon-font-e612 {
+	font-family: iconfont !important;
+	font-size: 12px;
+	font-style: normal;
+	-webkit-font-smoothing: antialiased;
+	color: #666
+}
+
+.icon-font-e612:before {
+	margin-left: 5px;
+	margin-right: 2px;
+	content: '\e672';
+	color: #325169;
+	font-size: 21px
+}
+
+.icon-font-e672 {
+	font-family: iconfont !important;
+	font-size: 12px;
+	font-style: normal;
+	-webkit-font-smoothing: antialiased;
+	color: #666
+}
+
+.icon-font-e672:before {
+	margin-left: 5px;
+	margin-right: 2px;
+	content: '\e672';
+	color: #325169;
+	font-size: 21px
+}

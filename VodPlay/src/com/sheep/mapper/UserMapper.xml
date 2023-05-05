@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sheep.dao.UserMapper">
+  <resultMap id="BaseResultMap" type="com.sheep.pojo.User">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="user_password" jdbcType="VARCHAR" property="userPassword" />
+    <result column="user_nickname" jdbcType="VARCHAR" property="userNickname" />
+    <result column="user_price" jdbcType="VARCHAR" property="userPrice" />
+    <result column="register_date" jdbcType="TIMESTAMP" property="registerDate" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, user_name, user_password, user_nickname, user_price, register_date, phone
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sys_user
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from sys_user
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.sheep.pojo.User">
+    insert into sys_user (id, user_name, user_password, 
+      user_nickname, user_price, register_date, 
+      phone)
+    values (#{id,jdbcType=BIGINT}, #{userName,jdbcType=VARCHAR}, #{userPassword,jdbcType=VARCHAR}, 
+      #{userNickname,jdbcType=VARCHAR}, #{userPrice,jdbcType=VARCHAR}, #{registerDate,jdbcType=TIMESTAMP}, 
+      #{phone,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sheep.pojo.User">
+    insert into sys_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="userPassword != null">
+        user_password,
+      </if>
+      <if test="userNickname != null">
+        user_nickname,
+      </if>
+      <if test="userPrice != null">
+        user_price,
+      </if>
+      <if test="registerDate != null">
+        register_date,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userPassword != null">
+        #{userPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="userNickname != null">
+        #{userNickname,jdbcType=VARCHAR},
+      </if>
+      <if test="userPrice != null">
+        #{userPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="registerDate != null">
+        #{registerDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sheep.pojo.User">
+    update sys_user
+    <set>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userPassword != null">
+        user_password = #{userPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="userNickname != null">
+        user_nickname = #{userNickname,jdbcType=VARCHAR},
+      </if>
+      <if test="userPrice != null">
+        user_price = #{userPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="registerDate != null">
+        register_date = #{registerDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sheep.pojo.User">
+    update sys_user
+    set user_name = #{userName,jdbcType=VARCHAR},
+      user_password = #{userPassword,jdbcType=VARCHAR},
+      user_nickname = #{userNickname,jdbcType=VARCHAR},
+      user_price = #{userPrice,jdbcType=VARCHAR},
+      register_date = #{registerDate,jdbcType=TIMESTAMP},
+      phone = #{phone,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  
+  <!-- 根据用户名和密码查询用户 -->
+   <select id="selectByUserNameAndPass" parameterType="com.sheep.pojo.User" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sys_user
+    where user_name = #{userName}  and user_password =  #{userPassword}
+  </select>
+  
+  <!-- 根据用户名查询是否存在记录 -->
+   <select id="findUserByUserName" parameterType="java.lang.String" resultType="int">
+    select count(*) from sys_user
+    where user_name = #{userName}
+  </select>
+  
+   <!-- 根据用户名查询用户详细信息 -->
+  <select id="selectByUserName" parameterType="com.sheep.pojo.User" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sys_user
+    where user_name = #{userName}
+  </select>
+  
+  <!-- 根据用户名修改用户信息 -->
+  
+  <update id="updateByPrimaryNameSelective" parameterType="com.sheep.pojo.User">
+    update sys_user
+    <set>
+      <if test="userPassword != null">
+        user_password = #{userPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="userNickname != null">
+        user_nickname = #{userNickname,jdbcType=VARCHAR},
+      </if>
+      <if test="userPrice != null">
+        user_price = #{userPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="registerDate != null">
+        register_date = #{registerDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where  user_name = #{userName}
+  </update>
+  
+  
+  <!-- 查询所有用户-->
+   <select id="getUsers" resultMap="BaseResultMap">
+    select * from sys_user;
+  </select>
+  
+</mapper>

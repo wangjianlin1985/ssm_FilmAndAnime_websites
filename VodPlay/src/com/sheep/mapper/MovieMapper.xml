@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sheep.dao.MovieMapper">
+	<resultMap id="BaseResultMap" type="com.sheep.pojo.Movie">
+		<id column="id" jdbcType="VARCHAR" property="id" />
+		<result column="movie_name" jdbcType="VARCHAR" property="movieName" />
+		<result column="movie_country" jdbcType="VARCHAR" property="movieCountry" />
+		<result column="movie_year" jdbcType="INTEGER" property="movieYear" />
+		<result column="show_time" jdbcType="TIMESTAMP" property="showTime" />
+		<result column="director" jdbcType="VARCHAR" property="director" />
+		<result column="actors" jdbcType="VARCHAR" property="actors" />
+		<result column="options" jdbcType="VARCHAR" property="option" />
+		<result column="message" jdbcType="VARCHAR" property="message" />
+		<result column="grade" jdbcType="DOUBLE" property="grade" />
+		<result column="downloads" jdbcType="BIGINT" property="downloads" />
+		<result column="plays" jdbcType="BIGINT" property="plays" />
+		<result column="user_id" jdbcType="BIGINT" property="userId" />
+		<result column="admin_id" jdbcType="BIGINT" property="adminId" />
+		<result column="mv_type" jdbcType="VARCHAR" property="mvType" />
+		<result column="img_type" jdbcType="VARCHAR" property="imgType" />
+		<result column="slider_image" jdbcType="VARCHAR" property="sliderImage" />
+		<result column="category_id" jdbcType="BIGINT" property="categoryId" />
+		<result column="isplay" jdbcType="BIGINT" property="isplay" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, movie_name, movie_country, movie_year, show_time,
+		director, actors,isplay,
+		options, message,
+		grade, downloads, plays, user_id,admin_id,
+		mv_type, img_type, slider_image,category_id
+	</sql>
+	<select id="selectByPrimaryKey" parameterType="java.lang.String"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from movie
+		where id = #{id,jdbcType=VARCHAR}
+	</select>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+		delete from movie
+		where id = #{id,jdbcType=VARCHAR}
+	</delete>
+	<insert id="insert" parameterType="com.sheep.pojo.Movie">
+		insert into movie (id,
+		movie_name, movie_country,
+		movie_year, show_time, director,
+		actors,
+		options, message,
+		grade, downloads, plays,
+		user_id,admin_id, mv_type,
+		img_type,slider_image,
+		category_id)
+		values (#{id,jdbcType=VARCHAR},
+		#{movieName,jdbcType=VARCHAR},
+		#{movieCountry,jdbcType=VARCHAR},
+		#{movieYear,jdbcType=INTEGER}, #{showTime,jdbcType=TIMESTAMP},
+		#{director,jdbcType=VARCHAR},
+		#{actors,jdbcType=VARCHAR},
+		#{option,jdbcType=VARCHAR},
+		#{message,jdbcType=VARCHAR},
+		#{grade,jdbcType=DOUBLE}, #{downloads,jdbcType=BIGINT},
+		#{plays,jdbcType=BIGINT},
+		#{userId,jdbcType=BIGINT},
+		#{adminId,jdbcType=BIGINT},
+		#{mvType,jdbcType=VARCHAR},
+		#{imgType,jdbcType=VARCHAR},
+		#{sliderImage,jdbcType=VARCHAR},
+		#{categoryId,jdbcType=BIGINT})
+	</insert>
+	<insert id="insertSelective" parameterType="com.sheep.pojo.Movie">
+		insert into movie
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="movieName != null">
+				movie_name,
+			</if>
+			<if test="movieCountry != null">
+				movie_country,
+			</if>
+			<if test="movieYear != null">
+				movie_year,
+			</if>
+			<if test="showTime != null">
+				show_time,
+			</if>
+			<if test="director != null">
+				director,
+			</if>
+			<if test="actors != null">
+				actors,
+			</if>
+			<if test="option != null">
+				options,
+			</if>
+			<if test="message != null">
+				message,
+			</if>
+			<if test="grade != null">
+				grade,
+			</if>
+			<if test="downloads != null">
+				downloads,
+			</if>
+			<if test="plays != null">
+				plays,
+			</if>
+			<if test="userId != null">
+				user_id,
+			</if>
+			<if test="adminId != null">
+				admin_id,
+			</if>
+			<if test="mvType != null">
+				mv_type,
+			</if>
+			<if test="imgType != null">
+				img_type,
+			</if>
+			<if test="sliderImage != null">
+				slider_image,
+			</if>
+			<if test="categoryId != null">
+				category_id,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=VARCHAR},
+			</if>
+			<if test="movieName != null">
+				#{movieName,jdbcType=VARCHAR},
+			</if>
+			<if test="movieCountry != null">
+				#{movieCountry,jdbcType=VARCHAR},
+			</if>
+			<if test="movieYear != null">
+				#{movieYear,jdbcType=INTEGER},
+			</if>
+			<if test="showTime != null">
+				#{showTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="director != null">
+				#{director,jdbcType=VARCHAR},
+			</if>
+			<if test="actors != null">
+				#{actors,jdbcType=VARCHAR},
+			</if>
+			<if test="option != null">
+				#{option,jdbcType=VARCHAR},
+			</if>
+			<if test="message != null">
+				#{message,jdbcType=VARCHAR},
+			</if>
+			<if test="grade != null">
+				#{grade,jdbcType=DOUBLE},
+			</if>
+			<if test="downloads != null">
+				#{downloads,jdbcType=BIGINT},
+			</if>
+			<if test="plays != null">
+				#{plays,jdbcType=BIGINT},
+			</if>
+			<if test="userId != null">
+				#{userId,jdbcType=BIGINT},
+			</if>
+			<if test="adminId != null">
+				#{adminId,jdbcType=BIGINT},
+			</if>
+			<if test="mvType != null">
+				#{mvType,jdbcType=VARCHAR},
+			</if>
+			<if test="imgType != null">
+				#{imgType,jdbcType=VARCHAR},
+			</if>
+			<if test="sliderImage != null">
+				#{sliderImage,jdbcType=VARCHAR},
+			</if>
+			<if test="categoryId != null">
+				#{categoryId,jdbcType=BIGINT},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.sheep.pojo.Movie">
+		update movie
+		<set>
+			<if test="movieName != null">
+				movie_name = #{movieName,jdbcType=VARCHAR},
+			</if>
+			<if test="movieCountry != null">
+				movie_country = #{movieCountry,jdbcType=VARCHAR},
+			</if>
+			<if test="movieYear != null">
+				movie_year = #{movieYear,jdbcType=INTEGER},
+			</if>
+			<if test="showTime != null">
+				show_time = #{showTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="director != null">
+				director = #{director,jdbcType=VARCHAR},
+			</if>
+			<if test="actors != null">
+				actors = #{actors,jdbcType=VARCHAR},
+			</if>
+			<if test="option != null">
+				options = #{option,jdbcType=VARCHAR},
+			</if>
+			<if test="message != null">
+				message = #{message,jdbcType=VARCHAR},
+			</if>
+			<if test="grade != null">
+				grade = #{grade,jdbcType=DOUBLE},
+			</if>
+			<if test="downloads != null">
+				downloads = #{downloads,jdbcType=BIGINT},
+			</if>
+			<if test="plays != null">
+				plays = #{plays,jdbcType=BIGINT},
+			</if>
+			<if test="userId != null">
+				user_id = #{userId,jdbcType=BIGINT},
+			</if>
+			<if test="adminId != null">
+				admin_id = #{adminId,jdbcType=BIGINT},
+			</if>
+			<if test="mvType != null">
+				mv_type = #{mvType,jdbcType=VARCHAR},
+			</if>
+			<if test="imgType != null">
+				img_type = #{imgType,jdbcType=VARCHAR},
+			</if>
+			<if test="sliderImage != null">
+				slider_image = #{sliderImage,jdbcType=VARCHAR},
+			</if>
+			<if test="categoryId != null">
+				category_id = #{categoryId,jdbcType=BIGINT},
+			</if>
+			<if test="isplay != null">
+				isplay = #{isplay,jdbcType=BIGINT},
+			</if>
+		</set>
+		where id = #{id,jdbcType=VARCHAR}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.sheep.pojo.Movie">
+		update movie
+		set
+		movie_name = #{movieName,jdbcType=VARCHAR},
+		movie_country =
+		#{movieCountry,jdbcType=VARCHAR},
+		movie_year =
+		#{movieYear,jdbcType=INTEGER},
+		show_time =
+		#{showTime,jdbcType=TIMESTAMP},
+		director =
+		#{director,jdbcType=VARCHAR},
+		actors = #{actors,jdbcType=VARCHAR},
+		options = #{option,jdbcType=VARCHAR},
+		message =
+		#{message,jdbcType=VARCHAR},
+		grade = #{grade,jdbcType=DOUBLE},
+		downloads = #{downloads,jdbcType=BIGINT},
+		plays =
+		#{plays,jdbcType=BIGINT},
+		user_id = #{userId,jdbcType=BIGINT},
+		admin_id = #{adminId,jdbcType=BIGINT},
+		mv_type =
+		#{mvType,jdbcType=VARCHAR},
+		img_type = #{imgType,jdbcType=VARCHAR},
+		slider_image = #{sliderImage,jdbcType=VARCHAR},
+		category_id =
+		#{categoryId,jdbcType=BIGINT}
+		where id =
+		#{id,jdbcType=VARCHAR}
+	</update>
+
+	<!-- 条件分页查询视频信息 -->
+
+	<select id="selectMovies" parameterType="com.sheep.pojo.Movie"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from movie where 1=1
+		<if test="movieName != null and movieName!=''">
+			and movie_name like concat("%",#{movieName},"%")
+		</if>
+		<if test="movieCountry != null and movieCountry!=''">
+			and movie_country like concat("%",#{movieCountry},"%")
+		</if>
+		<if test="movieYear != null">
+			and movie_year = #{movieYear,jdbcType=INTEGER}
+		</if>
+		<if test="showTime != null">
+			and show_time = #{showTime,jdbcType=TIMESTAMP}
+		</if>
+		<if test="director != null and director!=''">
+			director like concat("%",#{director},"%")
+		</if>
+		<if test="actors != null and actors!=''">
+			and actors like concat("%",#{actors},"%")
+		</if>
+		<if test="option != null and option!=''">
+			and options = #{option,jdbcType=VARCHAR}
+		</if>
+		<if test="message != null and message!=''">
+			and message like concat("%",#{message},"%")
+		</if>
+		<if test="grade != null">
+			and grade = #{grade,jdbcType=DOUBLE}
+		</if>
+		<if test="downloads != null">
+			and downloads &gt;= #{downloads,jdbcType=BIGINT}
+		</if>
+		<if test="plays != null">
+			and plays &gt;= #{plays,jdbcType=BIGINT}
+		</if>
+		<if test="userId != null">
+			and user_id = #{userId,jdbcType=BIGINT}
+		</if>
+		
+		<if test="isplay != null">
+			and isplay = #{isplay,jdbcType=INTEGER}
+		</if>
+		<if test="adminId != null">
+			and admin_id = #{adminId,jdbcType=BIGINT}
+		</if>
+		<if test="categoryId != null">
+			and category_id = #{categoryId,jdbcType=BIGINT}
+		</if>
+			
+			 <![CDATA[ limit #{startLimitPos},#{pageSize}]]>
+
+	</select>
+	
+	<!-- 根据用户id查询movie总记录数 -->
+	<select id="searchMovieCount" parameterType="com.sheep.pojo.Movie"
+		resultType="int">
+		select count(*) from movie where  
+		(movie_name like concat("%",#{movieName},"%")
+		or movie_country like concat("%",#{movieCountry},"%")
+		or director like concat("%",#{director},"%")
+		or  actors like concat("%",#{actors},"%")
+		or message like concat("%",#{message},"%"))
+		<if test="userId != null">
+			and user_id = #{userId,jdbcType=BIGINT}
+		</if>
+	</select>
+	
+	<!-- 视频搜索 -->
+	<select id="searchMoive" parameterType="com.sheep.pojo.Movie"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from movie where (movie_name like concat("%",#{movieName},"%")
+		or movie_country like concat("%",#{movieCountry},"%")
+		or director like concat("%",#{director},"%")
+		or  actors like concat("%",#{actors},"%")
+		or message like concat("%",#{message},"%"))
+		<if test="userId != null">
+			and user_id = #{userId,jdbcType=BIGINT}
+		</if>
+		<if test="isplay != null">
+			and isplay = #{isplay,jdbcType=INTEGER}
+		</if>
+		 <![CDATA[ limit #{startLimitPos},#{pageSize}]]>
+	</select>
+
+	<!-- 根据用户id查询movie总记录数 -->
+	<select id="queryMovieCount" parameterType="com.sheep.pojo.Movie"
+		resultType="int">
+
+		select count(*) from movie where 1=1
+
+		<if test="movieName != null">
+			and movie_name like concat("%",#{movieName},"%")
+		</if>
+		<if test="movieCountry != null">
+			and movie_country like concat("%",#{movieCountry},"%")
+		</if>
+		<if test="movieYear != null">
+			and movie_year = #{movieYear,jdbcType=INTEGER}
+		</if>
+		<if test="showTime != null">
+			and show_time = #{showTime,jdbcType=TIMESTAMP}
+		</if>
+		<if test="director != null">
+			director like concat("%",#{director},"%")
+		</if>
+		<if test="actors != null">
+			and actors like concat("%",#{actors},"%")
+		</if>
+		<if test="option != null">
+			and options = #{option,jdbcType=VARCHAR}
+		</if>
+		<if test="message != null">
+			and message like concat("%",#{message},"%")
+		</if>
+		<if test="grade != null">
+			and grade = #{grade,jdbcType=DOUBLE}
+		</if>
+		<if test="downloads != null">
+			and downloads &gt;= #{downloads,jdbcType=BIGINT}
+		</if>
+		<if test="plays != null">
+			and plays &gt;= #{plays,jdbcType=BIGINT}
+		</if>
+		<if test="userId != null and userId !=''">
+			and user_id = #{userId}
+		</if>
+		<if test="adminId != null and userId !=''">
+			and admin_id = #{adminId}
+		</if>
+		<if test="categoryId != null">
+			and category_id = #{categoryId,jdbcType=BIGINT}
+		</if>
+	</select>
+
+	<select id="selectSliderMV" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from movie where slider_image != ""
+	</select>
+
+	<select id="selectByCategory" parameterType="long"  resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from movie where isplay=1 and category_id = #{l}
+	</select>
+	
+	<select id="selectByRankings" parameterType="long"  resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from movie where isplay=1 order by plays desc;
+	</select>
+	
+	<select id="selectByRankingsByCategory" parameterType="long"  resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from movie where isplay=1 and category_id = #{l} order by plays desc;
+	</select>
+	
+	<select id="getMoviesByIDs" parameterType="string"  resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from movie where id like concat('%',#{mvs},'%') order by id;
+	</select>
+	
+	<!-- 后台轮播查询 -->
+	<select id="getMoviesBySlider" resultMap="BaseResultMap">
+		select <include refid="Base_Column_List" /> from movie where slider_image!=null or slider_image!='';
+	</select>
+	
+	<!-- 后台轮播查询总记录数 -->
+	<select id="getMovieNoSilderCount" resultType="int">
+		select count(*)  from movie where 
+		(slider_image =null or slider_image='') and (admin_id !=null or admin_id!='') ;
+	</select>
+	<!-- 分页后台轮播查询 -->
+	<select id="getMovieNoSilder" parameterType="com.sheep.pojo.Movie" resultMap="BaseResultMap">
+		select <include refid="Base_Column_List" /> from movie where 
+		(slider_image =null or slider_image='') and (admin_id !=null or admin_id!='') 
+		<![CDATA[ limit #{startLimitPos},#{pageSize}]]> ;
+	</select>
+	
+	
+	<!-- 后台管理之 加载用户视频 总记录数-->
+	<select id="getUserMovieCount" resultType="int">
+		select count(*)  from movie  where user_id !='' or user_id !=null ;
+	</select>
+	
+	<!-- 后台管理之 加载用户视频 分页-->
+	<select id="getUserMovie" parameterType="com.sheep.pojo.Movie" resultMap="BaseResultMap">
+		select <include refid="Base_Column_List" /> from movie where user_id !='' or user_id !=null
+		<![CDATA[ limit #{startLimitPos},#{pageSize}]]> ;
+	</select>
+	
+	<!-- 后台管理之 加载待审批视频  总记录数-->
+	<select id="getIsplayMovieCount" resultType="int">
+		select count(*)  from movie where isplay = 0 and (user_id !='' or user_id !=null);
+	</select>
+	
+	<!-- 后台管理之 加载待审批视频 分页-->
+	<select id="getIsplayMovie" parameterType="com.sheep.pojo.Movie" resultMap="BaseResultMap">
+		select <include refid="Base_Column_List" /> 
+		from movie where isplay = 0 and (user_id !='' or user_id !=null) 
+		<![CDATA[ limit #{startLimitPos},#{pageSize}]]> ;
+	</select>
+	
+
+	
+
+</mapper>

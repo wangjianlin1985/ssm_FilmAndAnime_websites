@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "mybatis-3-config.dtd" >
+<configuration>
+	<!-- 设置 打印信息 方式-->
+	<settings>
+		<setting name="logImpl" value="LOG4J"/>
+		<!-- 启用二级缓存 -->
+		<setting name="cacheEnabled" value="true"/>
+	</settings>
+	
+	<!-- 映射文件地址 -->
+	<mappers>
+		<mapper  resource="com/sheep/mapper/CategoryMapper.xml"/>
+		<mapper  resource="com/sheep/mapper/CommentMapper.xml"/>
+		<mapper  resource="com/sheep/mapper/MovieMapper.xml"/>
+		<mapper  resource="com/sheep/mapper/AdminMapper.xml"/>
+		<mapper  resource="com/sheep/mapper/UserMapper.xml"/>
+	</mappers>
+</configuration>
